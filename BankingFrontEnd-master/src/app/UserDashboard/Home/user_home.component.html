@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row holder">
+        <div class="col-sm-2 leftpane">
+            <ul class="nav flex-column">
+                <br>
+                <li class="nav-item">
+                    <a class="nav-link-btn-primary option" [routerLink]="['accountDetails']">
+                        Account Details
+                    </a>
+                </li>
+                <br>
+                <li class="nav-item">
+                    <a class="nav-link-btn-primary option" [routerLink]="['accountSummary']">
+                        Account Summary
+                    </a>
+                </li>
+                <br>
+                <li class="nav-item">
+                    <a class="nav-link-btn-primary option" [routerLink]="['accountStatement']">
+                        Account Statement
+                    </a>
+                </li>
+                <br>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle option" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Funds Transfer
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" [routerLink]="['imps']" >IMPS</a>
+                      <a class="dropdown-item" [routerLink]="['neft']">NEFT</a>
+                      <a class="dropdown-item" [routerLink]="['rtgs']">RTGS</a>
+                    </div>
+                </li>
+                <br>
+                <li class="nav-item">
+                    <a class="nav-link-btn-primary option" (click)="goToForgotPass()">
+                        Change Password
+                    </a>
+                </li>
+                <br>
+                <li class="nav-item">
+                    <a class="nav-link-btn-primary option" [routerLink]="['newtransactionpassword']">
+                        Change Transaction Password
+                    </a>
+                </li>
+                <br>
+                <li class="nav-item">
+                    <a class="nav-link-btn-primary option" (click)="logout()">
+                        Logout
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+
+        <div class="col h-100 rightpane" fxFlex>
+            <router-outlet></router-outlet>
+        </div>
+        
+    </div>
+</div>

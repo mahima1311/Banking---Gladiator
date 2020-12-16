@@ -1,0 +1,12 @@
+<div class="container" style="width: 100%; height: 100%;">
+    <h3>Check Account Status</h3>
+    <div class="d-flex justify-content-center">
+        <input type="text" placeholder="Enter Service Reference No" #refNum/>
+        <br>
+        <input type="button" class="btn btn-primary" value="Check Status" (click)="getServiceReferenceStatus(refNum)">
+        
+    </div>
+    <div *ngIf="dataFetched" id="message">
+        {{statusMessage}}
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container d-flex h-100">
+
+    <div class="maindiv align-self-center">
+        <h3 style="margin-bottom: 20px;">Forgot User ID</h3>
+        <span class="text-danger" *ngIf="error">{{errormessage}}</span>
+        <form [formGroup]="ForgotUserIdForm" (ngSubmit)="checkAccountNo()">
+            <div class="inputHolder">
+                <input type="text" placeholder="Enter Account Number" name="accountNo"
+                    [formControl]="accountNoControl" /><br>
+                <span *ngIf="!accountNoControl.valid && accountNoControl.dirty" class="text-danger">Account Number
+                    required!!</span>
+            </div>
+
+            <div *ngIf="checkable" class="inputHolder">
+                <input class="btn btn-success" type="submit" value="Check" />
+            </div>
+        </form>
+
+        <form [formGroup]="OtpCheckForm" (ngSubmit)="checkOtp()">
+            <div *ngIf="otpvisible" class="inputHolder">
+                <input type="text" placeholder="Enter OTP" name="otp" [formControl]="otpControl" /><br>
+                <span *ngIf="otpControl.hasError('required') && otpControl.dirty" class="text-danger">OTP
+                    required!!</span>
+            </div>
+
+            <div *ngIf="otpvisible" class="inputHolder">
+                <input class="btn btn-success" type="submit" value="Proceed" />
+            </div>
+        </form>
+    </div>
+</div>

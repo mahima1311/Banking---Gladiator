@@ -1,0 +1,28 @@
+
+.container-fluid, .leftpane, .rightpane, .holder{
+    height: 100%;
+    width: 100%;
+}
+
+.option {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+.col {
+    padding: 0px;
+    height: 100%;
+}
+
+.leftpane{
+    background-color: #E53935;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    color: #fff;
+    font-weight: 700;
+}
+
+.rightpane{
+    padding-left: 20px;
+    overflow: scroll;
+}

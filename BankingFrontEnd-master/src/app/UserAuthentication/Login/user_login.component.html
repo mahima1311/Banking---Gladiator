@@ -1,0 +1,33 @@
+<div class="container d-flex h-100">
+    
+  <div class="maindiv align-self-center">
+      <h3>Login to your Account </h3>
+      <br>
+      <span class="text-danger" *ngIf="error">{{errormessage}}</span>
+      <form [formGroup]="loginForm" (ngSubmit)="checkLogin()">
+          <div class="inputHolder">
+              <input type="text" placeholder="Enter UserID" name="userId" [formControl]="userIdControl"/><br>
+              <span *ngIf="!userIdControl.valid && userIdControl.dirty" class="text-danger">User ID required!!</span>
+          </div>
+
+          <div class="inputHolder">
+              <input type="password" placeholder="Enter Password" name="password" [formControl]="passwordControl"/><br>
+              <span *ngIf="passwordControl.hasError('required') && passwordControl.dirty" class="text-danger">Password required!!</span>
+              <span *ngIf="passwordControl.hasError('minLength') && passwordControl.dirty" class="text-danger">Password should be of minimum 4 characters</span>
+              <span *ngIf="passwordControl.hasError('maxLength') && passwordControl.dirty" class="text-danger">Password should be of maximum 40 characters</span>
+          </div>
+
+          <div class="inputHolder">
+              <input class="btn btn-success" type="submit" value="Login"/>
+          </div>
+      </form>
+
+      <div>
+        <a [routerLink]="['/internetbanking']">First Time User?Register</a><br>
+        <a [routerLink]="['/forgotuserid']">Forgot User ID?</a><br>
+        <a [routerLink]="['/forgotpassword']">Forgot Password?</a><br>
+      </div>
+
+  </div>
+</div>
+

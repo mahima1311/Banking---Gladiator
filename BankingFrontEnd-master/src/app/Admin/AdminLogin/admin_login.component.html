@@ -1,0 +1,25 @@
+<div class="container d-flex h-100">
+    
+    <div class="maindiv align-self-center">
+        <h3>Admin Login</h3>
+        <br>
+        <span class="text-danger" *ngIf="invalid">Invalid Credentials!!</span>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="inputHolder">
+                <input type="text" placeholder="Enter Username" name="username" [formControl]="usernameControl"/><br>
+                <span *ngIf="!usernameControl.valid && usernameControl.dirty" class="text-danger">Username required!!</span>
+            </div>
+
+            <div class="inputHolder">
+                <input type="password" placeholder="Enter Password" name="password" [formControl]="passwordControl"/><br>
+                <span *ngIf="passwordControl.hasError('required') && passwordControl.dirty" class="text-danger">Password required!!</span>
+                <span *ngIf="passwordControl.hasError('minLength') && passwordControl.dirty" class="text-danger">Password should be of minimum 4 characters</span>
+                <span *ngIf="passwordControl.hasError('maxLength') && passwordControl.dirty" class="text-danger">Password should be of maximum 40 characters</span>
+            </div>
+
+            <div class="inputHolder">
+                <input class="btn btn-success" type="submit" value="Login"/>
+            </div>
+        </form>
+    </div>
+</div>

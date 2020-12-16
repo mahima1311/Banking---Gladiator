@@ -1,0 +1,71 @@
+<div *ngIf="dataFetched" class="mainDiv">
+    <div class="header">
+        <h4 class="d-inline" style="font-weight: 700; float: left;">Account Details</h4>
+        <h4 class="d-inline" style="font-weight: 700; float: right;">Welcome {{name}}</h4>
+        <br>
+    </div>
+    <br>
+    <table class="first">
+        <tr>
+            <td class="label">Full Name :</td>
+            <td>{{fullName}}</td>
+        </tr>
+        <tr>
+            <td class="label">Father's Name :</td>
+            <td>{{accountDetails.user.fatherName}}</td>
+        </tr>
+        <tr>
+            <td class="label">Date of Birth :</td>
+            <td>{{dob}}</td>
+        </tr>
+        <tr>
+            <td class="label">Contact Number :</td>
+            <td>{{accountDetails.user.mobileNo}}</td>
+        </tr>
+        <tr>
+            <td class="label">Email Id :</td>
+            <td>{{accountDetails.user.email}}</td>
+        </tr>
+        <tr>
+            <td class="label">Aadhaar Card Number :</td>
+            <td>{{accountDetails.user.aadhar}}</td>
+        </tr>
+        <hr>
+        <tr *ngIf="accountDetails.residentialAddress.line1; else showPerma">
+            <td style="vertical-align: top;" class="label">Residential Address :</td>
+            <td>{{accountDetails.residentialAddress.line1}}<br>
+                {{accountDetails.residentialAddress.line2}}<br>
+                {{accountDetails.residentialAddress.city.cityName}} - {{accountDetails.residentialAddress.pincode}} <br>
+                {{accountDetails.residentialAddress.state.stateName}} <br>
+                {{accountDetails.residentialAddress.state.country.countryName}}</td>
+        </tr>
+        <ng-template #showPerma>
+            <tr>
+                <td style="vertical-align: top;" class="label">Residential Address :</td>
+                <td>{{accountDetails.permanentAddress.line1}}<br>
+                    {{accountDetails.permanentAddress.line2}}<br>
+                    {{accountDetails.permanentAddress.city.cityName}} - {{accountDetails.permanentAddress.pincode}} <br>
+                    {{accountDetails.permanentAddress.state.stateName}} <br>
+                    {{accountDetails.permanentAddress.state.country.countryName}}</td>
+            </tr>
+        </ng-template>
+        <hr>
+        <tr>
+            <td style="vertical-align: top;" class="label">Permanent Address :</td>
+            <td>{{accountDetails.permanentAddress.line1}}<br>
+                {{accountDetails.permanentAddress.line2}}<br>
+                {{accountDetails.permanentAddress.city.cityName}} - {{accountDetails.permanentAddress.pincode}} <br>
+                {{accountDetails.permanentAddress.state.stateName}} <br>
+                {{accountDetails.permanentAddress.state.country.countryName}}</td>
+        </tr>
+        <hr>
+        <tr>
+            <td class="label">Occupation Type :</td>
+            <td>{{accountDetails.occupation.occupationType}}</td>
+        </tr>
+        <tr>
+            <td class="label">Source of Income :</td>
+            <td>{{accountDetails.occupation.sourceOfIncome}}</td>
+        </tr>
+    </table>
+</div>
